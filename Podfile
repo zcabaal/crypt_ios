@@ -8,6 +8,7 @@ pod "Lock-Facebook", "~> 2.1"
 pod "Lock-Twitter", "~> 1.0"
 pod "MBProgressHUD", "~> 0.9"
 pod "Alamofire", "~> 3.1"
+pod "Obfuscator", "~> 2.0"
 
 target 'Crypt' do
 
