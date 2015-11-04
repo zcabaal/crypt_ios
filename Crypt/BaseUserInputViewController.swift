@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SwiftValidator
 
 
-class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate {
+class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, ValidationDelegate {
 
+    let validator = Validator()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,6 +59,22 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Validation delegate
+    func validationSuccessful() {
+        
+    }
+    
+    func validationFailed(errors: [UITextField : ValidationError]) {
+        var message = "You have \(errors.count) error(s):\n"
+        for error in errors{
+            message += "- "
+            message += error.0.placeholder ?? ""
+            message += " : "
+            message += error.1.errorMessage
+            message += "\n"
+        }
+        showBasicAlert(message)
+    }
     /*
     // MARK: - Navigation
 

@@ -8,15 +8,20 @@
 
 import UIKit
 import Lock
+import MBProgressHUD
 
 class LogInViewController: BaseUserInputViewController {
 
-    @IBOutlet weak var usernameTextField: UITextField!
+    private struct Constants{
+        static let password = NSLocalizedString("password", comment: "")
+        static let email = NSLocalizedString("email", comment: "")
+    }
+    
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -31,34 +36,42 @@ class LogInViewController: BaseUserInputViewController {
     }
 
     @IBAction func logIn() {
-        guard let username = usernameTextField.text where username.isNotBlank else{
-            self.showCannotBeEmptyAlert("email")
+        guard let email = emailTextField.text where email.isNotBlank else{
+            self.showCannotBeEmptyAlert(Constants.email)
             return
         }
         guard let password = passwordTextField.text where password.isNotBlank else{
-            self.showCannotBeEmptyAlert("password")
+            self.showCannotBeEmptyAlert(Constants.password)
             return
         }
         let client = GlobalState.sharedInstance.lock.apiClient()
         let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
-        if username.isEmail{
-            client.loginWithEmail(username, passcode: password, parameters: parameters, success: { profile, token in
-                print("Logged in user \(profile.email)")
-                print("Tokens: \(token)")
-                }, failure: { error in
-                    print("Oops something went wrong: \(error)")
-            })
-        }
-        else{
-            client.loginWithUsername(username, password: password, parameters: parameters, success: { profile, token in
-                print("Logged in user \(profile.email)")
-                print("Tokens: \(token)")
-                }, failure: { error in
-                    print("Oops something went wrong: \(error)")
-            })
-        }
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        client.loginWithEmail(email, passcode: password, parameters: parameters, success: successCallback(hud), failure: errorCallback(hud))
         
     }
+    
+    private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
+        return { error in
+            let alert = UIAlertController(title: "Login failed", message: "Please check you application logs for more info", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            print("Failed with error \(error)")
+            hud.hide(true)
+        }
+    }
+    
+    private func successCallback(hud: MBProgressHUD) -> (A0UserProfile, A0Token) -> () {
+        return { (profile, token) -> Void in
+            let alert = UIAlertController(title: "Logged In!", message: "User with name \(profile.name) logged in!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            print("Logged in user \(profile.name)")
+            print("Tokens: \(token)")
+            hud.hide(true)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
