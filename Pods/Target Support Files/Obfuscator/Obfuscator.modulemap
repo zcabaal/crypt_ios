@@ -1,0 +1,6 @@
+framework module Obfuscator {
+  umbrella header "Obfuscator-umbrella.h"
+
+  export *
+  module * { export * }
+}

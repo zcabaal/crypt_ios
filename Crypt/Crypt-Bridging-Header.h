@@ -9,6 +9,6 @@
 #ifndef BridgingObjC_h
 #define BridgingObjC_h
 #include <CommonCrypto/CommonCrypto.h>
-#import "Obfuscator.h"
+#import "Obfuscator+Swift.h"
 
 #endif /* Crypt-Bridging-Header_h */
