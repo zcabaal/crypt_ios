@@ -126,6 +126,7 @@ PODS:
     - NSData+Base64
   - Obfuscator (2.0.0)
   - PSAlertView (2.0.3)
+  - SwiftValidator (3.0.1)
   - TWReverseAuth (0.1.1):
     - LUKeychainAccess
     - OAuthCore
@@ -137,6 +138,7 @@ DEPENDENCIES:
   - Lock-Twitter (~> 1.0)
   - MBProgressHUD (~> 0.9)
   - Obfuscator (~> 2.0)
+  - SwiftValidator (~> 3.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -157,6 +159,7 @@ SPEC CHECKSUMS:
   OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
   Obfuscator: 9573f662415f048c1de91f99aa10626dd50e5007
   PSAlertView: 16d35f5dba549418492cf68a750d4f0dca21f4a2
+  SwiftValidator: c59223144754045d7691febdc3b3ecc2e73b609c
   TWReverseAuth: d2deef3521fa6bee32eabab67f114c2c4a53d4f5
 
 COCOAPODS: 0.39.0

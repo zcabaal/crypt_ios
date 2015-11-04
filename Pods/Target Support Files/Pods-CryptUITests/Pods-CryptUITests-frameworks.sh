@@ -101,6 +101,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CryptUITests/OAuthCore.framework"
   install_framework "Pods-CryptUITests/Obfuscator.framework"
   install_framework "Pods-CryptUITests/PSAlertView.framework"
+  install_framework "Pods-CryptUITests/SwiftValidator.framework"
   install_framework "Pods-CryptUITests/TWReverseAuth.framework"
   install_framework "Pods-CryptUITests/libextobjc.framework"
 fi
@@ -122,6 +123,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CryptUITests/OAuthCore.framework"
   install_framework "Pods-CryptUITests/Obfuscator.framework"
   install_framework "Pods-CryptUITests/PSAlertView.framework"
+  install_framework "Pods-CryptUITests/SwiftValidator.framework"
   install_framework "Pods-CryptUITests/TWReverseAuth.framework"
   install_framework "Pods-CryptUITests/libextobjc.framework"
 fi
