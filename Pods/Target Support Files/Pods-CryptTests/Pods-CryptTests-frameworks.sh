@@ -99,7 +99,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CryptTests/MBProgressHUD.framework"
   install_framework "Pods-CryptTests/NSData_Base64.framework"
   install_framework "Pods-CryptTests/OAuthCore.framework"
+  install_framework "Pods-CryptTests/Obfuscator.framework"
   install_framework "Pods-CryptTests/PSAlertView.framework"
+  install_framework "Pods-CryptTests/SwiftValidator.framework"
   install_framework "Pods-CryptTests/TWReverseAuth.framework"
   install_framework "Pods-CryptTests/libextobjc.framework"
 fi
@@ -119,7 +121,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CryptTests/MBProgressHUD.framework"
   install_framework "Pods-CryptTests/NSData_Base64.framework"
   install_framework "Pods-CryptTests/OAuthCore.framework"
+  install_framework "Pods-CryptTests/Obfuscator.framework"
   install_framework "Pods-CryptTests/PSAlertView.framework"
+  install_framework "Pods-CryptTests/SwiftValidator.framework"
   install_framework "Pods-CryptTests/TWReverseAuth.framework"
   install_framework "Pods-CryptTests/libextobjc.framework"
 fi

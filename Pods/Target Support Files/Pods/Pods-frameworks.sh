@@ -99,7 +99,9 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/NSData_Base64.framework"
   install_framework "Pods/OAuthCore.framework"
+  install_framework "Pods/Obfuscator.framework"
   install_framework "Pods/PSAlertView.framework"
+  install_framework "Pods/SwiftValidator.framework"
   install_framework "Pods/TWReverseAuth.framework"
   install_framework "Pods/libextobjc.framework"
 fi
@@ -119,7 +121,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/NSData_Base64.framework"
   install_framework "Pods/OAuthCore.framework"
+  install_framework "Pods/Obfuscator.framework"
   install_framework "Pods/PSAlertView.framework"
+  install_framework "Pods/SwiftValidator.framework"
   install_framework "Pods/TWReverseAuth.framework"
   install_framework "Pods/libextobjc.framework"
 fi
