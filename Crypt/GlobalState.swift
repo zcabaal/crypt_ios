@@ -9,14 +9,14 @@
 import Foundation
 
 import UIKit
-import Lock
-import LockFacebook
+  import Lock
+  import LockFacebook
 
 struct GlobalState {
     
     static let sharedInstance = GlobalState()
     
-    let lock: A0Lock
+   let lock: A0Lock
     
     init() {
         self.lock = A0Lock()
@@ -24,3 +24,4 @@ struct GlobalState {
         self.lock.registerAuthenticators([facebook])
     }
 }
+
