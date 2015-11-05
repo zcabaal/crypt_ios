@@ -13,7 +13,7 @@ import MBProgressHUD
 class SplashViewController: UIViewController {
     
     private struct Constants {
-        static let socialApps = ["facebook","twitter"]
+        static let socialApps = ["facebook","twitter","google"]
     }
     
     override func viewDidLoad() {
