@@ -6,6 +6,7 @@ use_frameworks!
 pod "Lock", "~> 1.20"
 pod "Lock-Facebook", "~> 2.1"
 pod "Lock-Twitter", "~> 1.0"
+pod "Google/SignIn", "~> 1.0"
 pod "MBProgressHUD", "~> 0.9"
 pod "Alamofire", "~> 3.1"
 pod "Obfuscator", "~> 2.0"

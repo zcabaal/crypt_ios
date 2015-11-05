@@ -8,21 +8,24 @@
 
 import UIKit
 import Lock
+import MBProgressHUD
+import SwiftValidator
 
 class SignUpViewController: BaseUserInputViewController  {
 
     private struct Constants{
         static let email = NSLocalizedString("email", comment: "")
         static let password = NSLocalizedString("password", comment: "")
-        static let username = NSLocalizedString("username", comment: "")
     }
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        validator.registerField(emailTextField, rules: [RequiredRule(),EmailRule()])
+        validator.registerField(passwordTextField, rules: [RequiredRule(),PasswordRule()])
         // Do any additional setup after loading the view.
     }
 
@@ -36,6 +39,11 @@ class SignUpViewController: BaseUserInputViewController  {
     }
     
     @IBAction func signUp() {
+        validator.validate(self)
+    }
+    
+    override func validationSuccessful() {
+        // It is always good to add two layers of protection! Just in case one messed up with one  layer, the other layer should work!
         guard let email = emailTextField.text where email.isNotBlank else{
             self.showCannotBeEmptyAlert(Constants.email)
             return
@@ -48,22 +56,32 @@ class SignUpViewController: BaseUserInputViewController  {
             self.showCannotBeEmptyAlert(Constants.password)
             return
         }
-        let username = usernameTextField.text
-        if username?.isEmail == true{
-            self.showInvalidInputAlett(Constants.username)
-            return
-        }
         let client = GlobalState.sharedInstance.lock.apiClient()
         let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
-        client.signUpWithEmail(email, username: usernameTextField.text, password: password, loginOnSuccess: true, parameters: parameters, success: { profile, token in
-            print("Logged in user \(profile?.email)")
-            print("Tokens: \(token)")
-            }, failure: { error in
-                print("Oops something went wrong: \(error)")
-        })
-        
+        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        client.signUpWithEmail(email, password: password, loginOnSuccess: true, parameters: parameters, success: successCallback(hud), failure: errorCallback(hud))
     }
     
+    private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
+        return { error in
+            let alert = UIAlertController(title: "Sign up failed", message: "Please check you application logs for more info", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            print("Failed with error \(error)")
+            hud.hide(true)
+        }
+    }
+    
+    private func successCallback(hud: MBProgressHUD) -> (A0UserProfile?, A0Token?) -> () {
+        return { (profile, token) -> Void in
+            let alert = UIAlertController(title: "Signed Up!", message: "User with name \(profile?.name) signed up!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            print("Signed up user \(profile?.name)")
+            print("Tokens: \(token)")
+            hud.hide(true)
+        }
+    }
     
     /*
     // MARK: - Navigation

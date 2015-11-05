@@ -10,5 +10,7 @@
 #define BridgingObjC_h
 #include <CommonCrypto/CommonCrypto.h>
 #import "Obfuscator+Swift.h"
+#import "A0GoogleProvider.h"
+#import "A0GoogleAuthenticator.h"
 
 #endif /* Crypt-Bridging-Header_h */

@@ -12,6 +12,8 @@
 		F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */; };
 		F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51901BEA26E1007FF026 /* LogInViewController.swift */; };
 		F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */; };
+		F1BD51981BEADBBF007FF026 /* A0GoogleAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51951BEADBBF007FF026 /* A0GoogleAuthenticator.m */; };
+		F1BD51991BEADBBF007FF026 /* A0GoogleProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51971BEADBBF007FF026 /* A0GoogleProvider.m */; };
 		F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */; };
 		F1CFC2131BCFF79100F5E2D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */; };
 		F1CFC2161BCFF79100F5E2D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CFC2141BCFF79100F5E2D8 /* Main.storyboard */; };
@@ -50,6 +52,10 @@
 		F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BD51901BEA26E1007FF026 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUserInputViewController.swift; sourceTree = "<group>"; };
+		F1BD51941BEADBBF007FF026 /* A0GoogleAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0GoogleAuthenticator.h; sourceTree = "<group>"; };
+		F1BD51951BEADBBF007FF026 /* A0GoogleAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleAuthenticator.m; sourceTree = "<group>"; };
+		F1BD51961BEADBBF007FF026 /* A0GoogleProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0GoogleProvider.h; sourceTree = "<group>"; };
+		F1BD51971BEADBBF007FF026 /* A0GoogleProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0GoogleProvider.m; sourceTree = "<group>"; };
 		F1CFC20D1BCFF79100F5E2D8 /* Crypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F1BD519A1BEADE2C007FF026 /* External files */ = {
+			isa = PBXGroup;
+			children = (
+				F122F4861BE7E05300CB3AB2 /* Obfuscator.h */,
+				F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */,
+				F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */,
+				F1BD51941BEADBBF007FF026 /* A0GoogleAuthenticator.h */,
+				F1BD51951BEADBBF007FF026 /* A0GoogleAuthenticator.m */,
+				F1BD51961BEADBBF007FF026 /* A0GoogleProvider.h */,
+				F1BD51971BEADBBF007FF026 /* A0GoogleProvider.m */,
+				F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */,
+			);
+			name = "External files";
+			sourceTree = "<group>";
+		};
 		F1CFC2041BCFF79100F5E2D8 = {
 			isa = PBXGroup;
 			children = (
@@ -143,14 +164,11 @@
 				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
 				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
 				F1D59A9F1BE4246000364642 /* GlobalState.swift */,
-				F122F4861BE7E05300CB3AB2 /* Obfuscator.h */,
-				F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */,
-				F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */,
-				F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */,
 				F1CFC2141BCFF79100F5E2D8 /* Main.storyboard */,
 				F1CFC2171BCFF79100F5E2D8 /* Assets.xcassets */,
 				F1CFC2191BCFF79100F5E2D8 /* LaunchScreen.storyboard */,
 				F1CFC21C1BCFF79100F5E2D8 /* Info.plist */,
+				F1BD519A1BEADE2C007FF026 /* External files */,
 			);
 			path = Crypt;
 			sourceTree = "<group>";
@@ -358,9 +376,11 @@
 				F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */,
 				F1CFC2131BCFF79100F5E2D8 /* ViewController.swift in Sources */,
 				F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */,
+				F1BD51981BEADBBF007FF026 /* A0GoogleAuthenticator.m in Sources */,
 				F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */,
 				F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
+				F1BD51991BEADBBF007FF026 /* A0GoogleProvider.m in Sources */,
 				F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
