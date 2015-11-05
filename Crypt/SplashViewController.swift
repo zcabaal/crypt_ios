@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//* import Lock  */
+import Lock
 import MBProgressHUD 
 
 class SplashViewController: UIViewController {
