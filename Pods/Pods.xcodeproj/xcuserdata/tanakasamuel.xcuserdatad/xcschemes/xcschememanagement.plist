@@ -84,6 +84,11 @@
 			<key>orderHint</key>
 			<integer>17</integer>
 		</dict>
+		<key>Obfuscator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>24</integer>
+		</dict>
 		<key>PSAlertView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -108,6 +113,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>18</integer>
+		</dict>
+		<key>SwiftValidator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>25</integer>
 		</dict>
 		<key>TWReverseAuth.xcscheme</key>
 		<dict>
@@ -162,6 +172,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>78127AC546310EDF3A30BB6E76032EC0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7F2461A9D9724998746452861A76414F</key>
 		<dict>
 			<key>primary</key>
@@ -172,7 +187,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>94899CBF191A953F2A1AB6D2132F6A69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>97239FC927FCD5A6FF9375995C117E9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>996EDAA5845956288592D64C57DC033F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,6 +232,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D03B7A82CA41594D69050113B2001BBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D6EF8B7F5FE1FB34E15CDEE8E842E33D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D8AC362FA3A06B32941307AB033D739D</key>
 		<dict>
 			<key>primary</key>
@@ -228,6 +263,11 @@
 			<true/>
 		</dict>
 		<key>F5ACF367AE3BD7A7F2AF2D430901DF7B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8A723C10BB9FE39EF02598ABA3C276E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
