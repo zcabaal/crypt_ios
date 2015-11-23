@@ -13,7 +13,7 @@ import MBProgressHUD
 class SplashViewController: UIViewController {
     
     private struct Constants {
-        static let socialApps = ["facebook","twitter","google"]
+        static let socialApps = ["Facebook":"facebook","Twitter":"twitter","Google":"google-oauth2"]
     }
     
     override func viewDidLoad() {
@@ -30,7 +30,11 @@ class SplashViewController: UIViewController {
     @IBAction func connectWithSotialApp(sender: UIButton){
         let lock = GlobalState.sharedInstance.lock
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        lock.identityProviderAuthenticator().authenticateWithConnectionName(Constants.socialApps[sender.tag], parameters: nil, success: self.successCallback(hud), failure: self.errorCallback(hud))
+        
+        if let buttonLable = sender.titleLabel?.text
+            ,connectionName = Constants.socialApps[buttonLable]{
+            lock.identityProviderAuthenticator().authenticateWithConnectionName(connectionName, parameters: nil, success: self.successCallback(hud), failure: self.errorCallback(hud))
+        }
     }
 
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {

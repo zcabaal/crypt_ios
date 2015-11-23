@@ -63,6 +63,8 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.googleusercontent.apps.241438909140-gik5rgonsd0n4156dmo0pphrcjp2bt1j</string>
+				<string>com.crypttransfer.crypt</string>
 				<string>fb925624970854567</string>
 				<string>a0nziymo7z5adtiaasuafvyzvfjwbpnor4</string>
 			</array>

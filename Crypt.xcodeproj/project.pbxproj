@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA8181BD91D7099B8ECC93CD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF48107A67779B9F817E947 /* Pods.framework */; };
 		F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */; };
+		F14489DC1C0290CE0020D09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F14489DB1C0290CE0020D09D /* GoogleService-Info.plist */; };
 		F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */; };
 		F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51901BEA26E1007FF026 /* LogInViewController.swift */; };
 		F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */; };
@@ -49,6 +50,7 @@
 		F122F4861BE7E05300CB3AB2 /* Obfuscator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Obfuscator.h; path = ../Pods/Obfuscator/Obfuscator/Obfuscator.h; sourceTree = "<group>"; };
 		F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Obfuscator+Swift.h"; sourceTree = "<group>"; };
 		F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Obfuscator+Swift.m"; sourceTree = "<group>"; };
+		F14489DB1C0290CE0020D09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BD51901BEA26E1007FF026 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUserInputViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 		F1BD519A1BEADE2C007FF026 /* External files */ = {
 			isa = PBXGroup;
 			children = (
+				F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */,
 				F122F4861BE7E05300CB3AB2 /* Obfuscator.h */,
 				F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */,
 				F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */,
@@ -127,7 +130,7 @@
 				F1BD51951BEADBBF007FF026 /* A0GoogleAuthenticator.m */,
 				F1BD51961BEADBBF007FF026 /* A0GoogleProvider.h */,
 				F1BD51971BEADBBF007FF026 /* A0GoogleProvider.m */,
-				F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */,
+				F14489DB1C0290CE0020D09D /* GoogleService-Info.plist */,
 			);
 			name = "External files";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1CFC21B1BCFF79100F5E2D8 /* LaunchScreen.storyboard in Resources */,
+				F14489DC1C0290CE0020D09D /* GoogleService-Info.plist in Resources */,
 				F1CFC2181BCFF79100F5E2D8 /* Assets.xcassets in Resources */,
 				F1CFC2161BCFF79100F5E2D8 /* Main.storyboard in Resources */,
 			);

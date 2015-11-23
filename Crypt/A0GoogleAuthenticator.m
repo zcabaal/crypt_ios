@@ -57,7 +57,7 @@ static NSString * const DefaultConnectionName = @"google-oauth2";
     if (self) {
         _google = google;
         _connectionName = [connectionName copy];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
 }
