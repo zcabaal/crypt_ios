@@ -25,27 +25,18 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        //src: http://stackoverflow.com/questions/433337/set-the-maximum-character-length-of-a-uitextfield
-        let oldLength = textField.text?.characters.count ?? 0
-        if (range.length + range.location > oldLength )
-        {
-            return false;
-        }
-        
-        let newLength = oldLength + string.characters.count - range.length
-        return newLength <= maximumLengthForTextField(textField)
-    }
+    
     
     // override to set the maximum length of a text field
     func maximumLengthForTextField(textField: UITextField) -> Int{
-        return Int.max
+        return 64
     }
     
+    func getExclamationLable(textField:UITextField) -> UILabel?{
+        return nil
+    }
+    
+    // MARK: - show alerts
     func showCannotBeEmptyAlert(fieldName: String){
         showBasicAlert(NSLocalizedString("\(fieldName) cannot be empty", comment: "This is an alert message when user leaves a required text field empty"))
     }
@@ -57,6 +48,39 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - text field delegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        let validation = validator.validations[textField]
+        let errorLable = validation?.errorLabel
+        let exclamationLable = self.getExclamationLable(textField)
+        let error = validation?.validateField()
+        if (error != nil) {
+            errorLable?.text = error?.errorMessage
+            exclamationLable?.hidden = false
+        }
+        else{
+            errorLable?.text = ""
+            exclamationLable?.hidden = true
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        //src: http://stackoverflow.com/questions/433337/set-the-maximum-character-length-of-a-uitextfield
+        let oldLength = textField.text?.characters.count ?? 0
+        if (range.length + range.location > oldLength )
+        {
+            return false;
+        }
+        
+        let newLength = oldLength + string.characters.count - range.length
+        return newLength <= maximumLengthForTextField(textField)
     }
     
     // MARK: - Validation delegate

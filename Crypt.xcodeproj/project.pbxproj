@@ -22,7 +22,7 @@
 		F1CFC21B1BCFF79100F5E2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CFC2191BCFF79100F5E2D8 /* LaunchScreen.storyboard */; };
 		F1CFC2261BCFF79200F5E2D8 /* CryptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2251BCFF79200F5E2D8 /* CryptTests.swift */; };
 		F1CFC2311BCFF79200F5E2D8 /* CryptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2301BCFF79200F5E2D8 /* CryptUITests.swift */; };
-		F1D59A9E1BE4239500364642 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9D1BE4239500364642 /* SplashViewController.swift */; };
+		F1D59A9E1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9D1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift */; };
 		F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9F1BE4246000364642 /* GlobalState.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,7 @@
 		F1CFC22C1BCFF79200F5E2D8 /* CryptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CFC2301BCFF79200F5E2D8 /* CryptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptUITests.swift; sourceTree = "<group>"; };
 		F1CFC2321BCFF79200F5E2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1D59A9D1BE4239500364642 /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		F1D59A9D1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViaThirdPartyAppsViewController.swift; sourceTree = "<group>"; };
 		F1D59A9F1BE4246000364642 /* GlobalState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 		F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypt-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,7 +162,7 @@
 			children = (
 				F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */,
 				F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */,
-				F1D59A9D1BE4239500364642 /* SplashViewController.swift */,
+				F1D59A9D1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift */,
 				F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */,
 				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
 				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
@@ -376,7 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1D59A9E1BE4239500364642 /* SplashViewController.swift in Sources */,
+				F1D59A9E1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift in Sources */,
 				F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */,
 				F1CFC2131BCFF79100F5E2D8 /* ViewController.swift in Sources */,
 				F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */,

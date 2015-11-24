@@ -10,7 +10,7 @@ import UIKit
 import Lock
 import MBProgressHUD 
 
-class SplashViewController: UIViewController {
+class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private struct Constants {
         static let socialApps = ["Facebook":"facebook","Twitter":"twitter","Google":"google-oauth2"]
