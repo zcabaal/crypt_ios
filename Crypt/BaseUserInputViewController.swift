@@ -13,10 +13,11 @@ import SwiftValidator
 class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAlertViewDelegate, ValidationDelegate {
 
     let validator = Validator()
+    var activeTextField : UITextField?
+    var addedKbOffset: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -25,7 +26,16 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
     // override to set the maximum length of a text field
     func maximumLengthForTextField(textField: UITextField) -> Int{
@@ -56,7 +66,12 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
         let validation = validator.validations[textField]
         let errorLable = validation?.errorLabel
         let exclamationLable = self.getExclamationLable(textField)
@@ -99,6 +114,26 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         }
         showBasicAlert(message)
     }
+    
+    // MARK: - Keyboard
+    
+    func keyboardWillShow(sender: NSNotification){
+        if let kbSize = sender.userInfo?[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.size, activeField = activeTextField{
+            var aRect = self.view.frame;
+            aRect.size.height -= kbSize.height + activeField.frame.size.height;
+            if (!CGRectContainsPoint(aRect, activeField.frame.origin ) && addedKbOffset==0) {
+                self.view.frame.origin.y -= kbSize.height
+                addedKbOffset = kbSize.height
+            }
+            
+        }
+    }
+    
+    func keyboardWillHide(sender: NSNotification){
+        self.view.frame.origin.y += addedKbOffset
+        addedKbOffset = 0
+    }
+    
     /*
     // MARK: - Navigation
 
