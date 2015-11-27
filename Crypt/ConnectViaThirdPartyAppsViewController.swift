@@ -39,7 +39,8 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
 
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
-            let alert = UIAlertController(title: "Login failed", message: "Please check you application logs for more info", preferredStyle: .Alert)
+            let errorMessage = error.userInfo["NSLocalizedFailureReason"] as? String ?? "Oooops! Something went wrong!"
+            let alert = UIAlertController(title: "Login failed", message: errorMessage, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             print("Failed with error \(error)")

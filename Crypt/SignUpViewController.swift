@@ -135,9 +135,8 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
-            let alert = UIAlertController(title: "Sign up failed", message: "Please check you application logs for more info", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"] as? String ?? error.userInfo["NSLocalizedFailureReason"] as? String ?? "Oooops! an error have occured"
+            self.showBasicAlert("Sign up Failed",message: errorMessage)
             print("Failed with error \(error)")
             hud.hide(true)
         }
@@ -145,9 +144,7 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile?, A0Token?) -> () {
         return { (profile, token) -> Void in
-            let alert = UIAlertController(title: "Signed Up!", message: "User with name \(profile?.name) signed up!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.showBasicAlert("Signed Up!", message: "User with name \(profile?.name) signed up!")
             print("Signed up user \(profile?.name)")
             print("Tokens: \(token)")
             hud.hide(true)

@@ -55,7 +55,11 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
         showBasicAlert(NSLocalizedString("Please enter a valid \(fieldName)", comment: "This is an alert message when user does not enter a valid input"))
     }
     func showBasicAlert(message: String){
-        let alert = UIAlertController.init(title: nil, message: message, preferredStyle: .Alert)
+        showBasicAlert(nil,message: message)
+    }
+    
+    func showBasicAlert(title: String?, message: String){
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }
