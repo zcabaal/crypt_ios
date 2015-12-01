@@ -50,12 +50,10 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile, A0Token) -> () {
         return { (profile, token) -> Void in
-            let alert = UIAlertController(title: "Logged In!", message: "User with name \(profile.name) logged in!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)
+            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
         }
     }
     /*

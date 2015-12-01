@@ -135,7 +135,7 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
-            let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"] as? String ?? error.userInfo["NSLocalizedFailureReason"] as? String ?? "Oooops! an error have occured"
+            let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"].description ?? error.userInfo["NSLocalizedFailureReason"]?.description ?? "Oooops! an error have occured"
             self.showBasicAlert("Sign up Failed",message: errorMessage)
             print("Failed with error \(error)")
             hud.hide(true)
@@ -144,10 +144,10 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile?, A0Token?) -> () {
         return { (profile, token) -> Void in
-            self.showBasicAlert("Signed Up!", message: "User with name \(profile?.name) signed up!")
             print("Signed up user \(profile?.name)")
             print("Tokens: \(token)")
             hud.hide(true)
+            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
         }
     }
     
