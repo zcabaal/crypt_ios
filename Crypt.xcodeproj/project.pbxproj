@@ -10,6 +10,7 @@
 		DA8181BD91D7099B8ECC93CD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF48107A67779B9F817E947 /* Pods.framework */; };
 		F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */; };
 		F14489DC1C0290CE0020D09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F14489DB1C0290CE0020D09D /* GoogleService-Info.plist */; };
+		F19A04241C0D17E000EB28D4 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19A04231C0D17E000EB28D4 /* PaymentViewController.swift */; };
 		F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */; };
 		F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51901BEA26E1007FF026 /* LogInViewController.swift */; };
 		F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */; };
@@ -51,6 +52,7 @@
 		F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Obfuscator+Swift.h"; sourceTree = "<group>"; };
 		F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Obfuscator+Swift.m"; sourceTree = "<group>"; };
 		F14489DB1C0290CE0020D09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F19A04231C0D17E000EB28D4 /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BD51901BEA26E1007FF026 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUserInputViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */,
+				F19A04231C0D17E000EB28D4 /* PaymentViewController.swift */,
 				F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */,
 				F1D59A9D1BE4239500364642 /* ConnectViaThirdPartyAppsViewController.swift */,
 				F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */,
@@ -382,6 +385,7 @@
 				F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */,
 				F1BD51981BEADBBF007FF026 /* A0GoogleAuthenticator.m in Sources */,
 				F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */,
+				F19A04241C0D17E000EB28D4 /* PaymentViewController.swift in Sources */,
 				F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				F1BD51991BEADBBF007FF026 /* A0GoogleProvider.m in Sources */,

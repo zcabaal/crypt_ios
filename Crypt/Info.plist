@@ -39,6 +39,10 @@
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+        <string>com.venmo.touch.v1</string>
+        <string>com.paypal.ppclient.touch.v1</string>
+        <string>com.paypal.ppclient.touch.v2</string>
+        <string>org-appextension-feature-password-management</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
@@ -67,6 +71,7 @@
 				<string>com.crypttransfer.crypt</string>
 				<string>fb925624970854567</string>
 				<string>a0nziymo7z5adtiaasuafvyzvfjwbpnor4</string>
+				<string>com.crypttransfer.crypt.braintree</string>
 			</array>
 		</dict>
 	</array>

@@ -17,6 +17,8 @@ struct GlobalState {
     
     static let sharedInstance = GlobalState()
     
+    static let braintreeURL = "com.crypttransfer.crypt.braintree"
+    
     let lock: A0Lock
     
     private init() {
