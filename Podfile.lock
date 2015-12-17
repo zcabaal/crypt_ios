@@ -30,6 +30,19 @@ PODS:
   - Bolts/AppLinks (1.4.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.4.0)
+  - Braintree (4.0.1):
+    - Braintree/Card (= 4.0.1)
+    - Braintree/Core (= 4.0.1)
+    - Braintree/PayPal (= 4.0.1)
+    - Braintree/UI (= 4.0.1)
+  - Braintree/Card (4.0.1):
+    - Braintree/Core
+  - Braintree/Core (4.0.1)
+  - Braintree/PayPal (4.0.1):
+    - Braintree/Core
+  - Braintree/UI (4.0.1):
+    - Braintree/Card
+    - Braintree/Core
   - CocoaLumberjack (2.2.0):
     - CocoaLumberjack/Default (= 2.2.0)
     - CocoaLumberjack/Extensions (= 2.2.0)
@@ -158,6 +171,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.1)
+  - Braintree
   - Google/SignIn (~> 1.0)
   - Lock (~> 1.20)
   - Lock-Facebook (~> 2.1)
@@ -171,6 +185,7 @@ SPEC CHECKSUMS:
   Alamofire: 415bd7f56197722978759078486689f7ef913dce
   BDBOAuth1Manager: 2e28773b58f880fb36b5cd3efcf0b1fefbc78a99
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
+  Braintree: fa4982b359cc831e7d7e8e5587b6fef343648d79
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   FBSDKCoreKit: 9141b70960a37930850370495fe565f4a27ac141
   FBSDKLoginKit: c11ed3c2833472db3bb4a4aecf27af4a6f69b173

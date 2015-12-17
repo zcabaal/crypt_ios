@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Braintree
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         GlobalState.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
+        BTAppSwitch.setReturnURLScheme(GlobalState.braintreeURL)
         return true
     }
 
@@ -43,7 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        return GlobalState.sharedInstance.lock.handleURL(url, sourceApplication: sourceApplication)
+        if url.scheme.localizedCaseInsensitiveCompare(GlobalState.braintreeURL) == .OrderedSame {
+            return BTAppSwitch.handleOpenURL(url, sourceApplication:sourceApplication)
+        }else{
+            return GlobalState.sharedInstance.lock.handleURL(url, sourceApplication: sourceApplication)
+        }
+        
     }
 
 

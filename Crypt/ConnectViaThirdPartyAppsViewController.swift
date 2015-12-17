@@ -10,10 +10,10 @@ import UIKit
 import Lock
 import MBProgressHUD 
 
-class SplashViewController: UIViewController {
+class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private struct Constants {
-        static let socialApps = ["facebook","twitter","google"]
+        static let socialApps = ["Facebook":"facebook","Twitter":"twitter","Google":"google-oauth2"]
     }
     
     override func viewDidLoad() {
@@ -30,12 +30,17 @@ class SplashViewController: UIViewController {
     @IBAction func connectWithSotialApp(sender: UIButton){
         let lock = GlobalState.sharedInstance.lock
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        lock.identityProviderAuthenticator().authenticateWithConnectionName(Constants.socialApps[sender.tag], parameters: nil, success: self.successCallback(hud), failure: self.errorCallback(hud))
+        
+        if let buttonLable = sender.titleLabel?.text
+            ,connectionName = Constants.socialApps[buttonLable]{
+            lock.identityProviderAuthenticator().authenticateWithConnectionName(connectionName, parameters: nil, success: self.successCallback(hud), failure: self.errorCallback(hud))
+        }
     }
 
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
-            let alert = UIAlertController(title: "Login failed", message: "Please check you application logs for more info", preferredStyle: .Alert)
+            let errorMessage = error.userInfo["NSLocalizedFailureReason"] as? String ?? "Oooops! Something went wrong!"
+            let alert = UIAlertController(title: "Login failed", message: errorMessage, preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             print("Failed with error \(error)")
@@ -45,12 +50,10 @@ class SplashViewController: UIViewController {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile, A0Token) -> () {
         return { (profile, token) -> Void in
-            let alert = UIAlertController(title: "Logged In!", message: "User with name \(profile.name) logged in!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)
+            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
         }
     }
     /*
