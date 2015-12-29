@@ -12,6 +12,8 @@ pod "Alamofire", "~> 3.1"
 pod "Obfuscator", "~> 2.0"
 pod "SwiftValidator", "~> 3.0"
 pod "Braintree", "~> 4.0"
+pod 'Canvas', '~> 0.1.2'
+
 
 target 'Crypt' do
 
