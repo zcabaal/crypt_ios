@@ -13,7 +13,7 @@ import MBProgressHUD
 class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private struct Constants {
-        static let socialApps = ["Facebook":"facebook","Twitter":"twitter","Google":"google-oauth2"]
+        static let socialApps = ["Connect with Facebook":"facebook","Connect with Twitter":"twitter","Connect with Google":"google-oauth2"]
     }
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)
-            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
+            self.presentViewController((self.storyboard?.instantiateViewControllerWithIdentifier("nav1"))!, animated: true, completion: nil)
         }
     }
     /*

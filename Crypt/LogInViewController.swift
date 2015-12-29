@@ -101,7 +101,7 @@ class LogInViewController: BaseUserInputViewController {
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)
-            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
+            self.presentViewController((self.storyboard?.instantiateViewControllerWithIdentifier("nav1"))!, animated: true, completion: nil)
         }
     }
     

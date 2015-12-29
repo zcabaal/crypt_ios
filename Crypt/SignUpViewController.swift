@@ -53,28 +53,6 @@ class SignUpViewController: BaseUserInputViewController  {
             confirmPasswordExclamation.hidden = true
         }
     }
-    @IBOutlet weak var firstNameErrorLable: UILabel!{
-        didSet{
-            firstNameErrorLable.text = ""
-        }
-    }
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var firstNameExclamation: UILabel!{
-        didSet{
-            firstNameExclamation.hidden = true
-        }
-    }
-    @IBOutlet weak var lastNameErrorLable: UILabel!{
-        didSet{
-            lastNameErrorLable.text = ""
-        }
-    }
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var lastNameExclamation: UILabel!{
-        didSet{
-            lastNameExclamation.hidden = true
-        }
-    }
     
     override func getExclamationLable(textField:UITextField) -> UILabel?{
         switch textField{
@@ -84,10 +62,6 @@ class SignUpViewController: BaseUserInputViewController  {
             return passwordExclamation
         case confirmPasswordTextField:
             return confirmPasswordExclamation
-        case firstNameTextField:
-            return firstNameExclamation
-        case lastNameTextField:
-            return lastNameExclamation
         default:
             return nil
         }
@@ -98,8 +72,6 @@ class SignUpViewController: BaseUserInputViewController  {
         validator.registerField(emailTextField, errorLabel: emailErrorLable, rules: [RequiredRule(),EmailRule()])
         validator.registerField(passwordTextField, errorLabel: passwordErrorLable, rules: [RequiredRule(),PasswordRule()])
         validator.registerField(confirmPasswordTextField, errorLabel: confirmPasswordErrorLable, rules: [RequiredRule(),ConfirmationRule(confirmField: passwordTextField, message: Constants.passwordDoNotMatch)])
-        validator.registerField(firstNameTextField, errorLabel: firstNameErrorLable, rules: [RequiredRule()])
-        validator.registerField(lastNameTextField, errorLabel: lastNameErrorLable, rules: [RequiredRule()])
         // Do any additional setup after loading the view.
     }
 
@@ -147,7 +119,7 @@ class SignUpViewController: BaseUserInputViewController  {
             print("Signed up user \(profile?.name)")
             print("Tokens: \(token)")
             hud.hide(true)
-            self.navigationController?.pushViewController(PaymentViewController(), animated: true)
+            self.presentViewController((self.storyboard?.instantiateViewControllerWithIdentifier("nav1"))!, animated: true, completion: nil)
         }
     }
     
