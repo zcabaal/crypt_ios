@@ -12,5 +12,6 @@
 #import "Obfuscator+Swift.h"
 #import "A0GoogleProvider.h"
 #import "A0GoogleAuthenticator.h"
+#import "A0TwitterAuthenticator.h"
 
 #endif /* Crypt-Bridging-Header_h */

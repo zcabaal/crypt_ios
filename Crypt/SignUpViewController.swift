@@ -107,8 +107,8 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
-            let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"].description ?? error.userInfo["NSLocalizedFailureReason"]?.description ?? "Oooops! an error have occured"
-            self.showBasicAlert("Sign up Failed",message: errorMessage)
+            let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"]??.description ?? error.userInfo["NSLocalizedFailureReason"]?.description
+            self.showBasicAlert("Sign up Failed",message: errorMessage ?? "Oooops! an error have occured")
             print("Failed with error \(error)")
             hud.hide(true)
         }

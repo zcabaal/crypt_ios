@@ -1,1 +1,1 @@
-../../../Lock/Pod/Classes/CoreUI/A0LoadingView.h
+../../../Lock/Lock/CoreUI/A0LoadingView.h

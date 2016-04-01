@@ -1,1 +1,1 @@
-../../../Lock/Pod/Classes/CoreUI/A0EmailValidator.h
+../../../Lock/Lock/CoreUI/A0EmailValidator.h

@@ -1,4 +1,5 @@
 #import "BTAPIClient_Internal.h"
+#import "BTCard.h"
 #import "BTDropInViewController_Internal.h"
 #import "BTLogger_Internal.h"
 #import "BTDropInErrorAlert.h"
@@ -13,7 +14,6 @@
 
 @interface BTDropInViewController () <BTUIScrollViewScrollRectToVisibleDelegate, BTUICardFormViewDelegate, BTDropInViewControllerDelegate, BTDropInSelectPaymentMethodViewControllerDelegate, BTViewControllerPresentingDelegate>
 
-@property (nonatomic, strong) BTDropInViewController *addPaymentMethodDropInViewController;
 @property (nonatomic, strong) BTUIScrollView *scrollView;
 @property (nonatomic, assign) NSInteger selectedPaymentMethodNonceIndex;
 @property (nonatomic, strong) UIBarButtonItem *submitBarButtonItem;
@@ -97,18 +97,19 @@
             [[BTLogger sharedLogger] critical:@"ERROR: Drop-in delegate not set"];
         }
 
-        self.dropInContentView.paymentButton.configuration = configuration;
+        self.dropInContentView.hidePaymentButton = !self.dropInContentView.paymentButton.hasAvailablePaymentMethod;
 
-        // Drop-in view controller remains in a loading state until this is set
-        self.paymentMethodNonces = self.paymentMethodNonces;
-
+        if (![self isAddPaymentMethodDropInViewController]) {
+            [self fetchPaymentMethodsOnCompletion:^{}];
+        }
+        
         if (error) {
             BTDropInErrorAlert *errorAlert = [[BTDropInErrorAlert alloc] initWithPresentingViewController:self];
             errorAlert.title = error.localizedDescription ?: BTDropInLocalizedString(ERROR_ALERT_CONNECTION_ERROR);
             [errorAlert show];
         }
 
-        NSArray *challenges = configuration.json[@"challenges"].asArray;
+        NSArray *challenges = [configuration.json[@"challenges"] asArray];
 
         static NSString *cvvChallenge = @"cvv";
         static NSString *postalCodeChallenge = @"postal_code";
@@ -306,6 +307,7 @@
 
     BTPaymentMethodNonce *paymentInfo = [self selectedPaymentMethod];
     if (paymentInfo != nil) {
+        [self showLoadingState:NO];
         [self informDelegateWillComplete];
         [self informDelegateDidAddPaymentInfo:paymentInfo];
     } else if (!self.dropInContentView.cardForm.hidden) {
@@ -348,9 +350,6 @@
                 }
 
                 [self informDelegateDidAddPaymentInfo:paymentMethodNonce];
-
-                // Let the view controller release
-                self.addPaymentMethodDropInViewController = nil;
             }];
         } else {
             BTDropInErrorAlert *alert = [[BTDropInErrorAlert alloc] initWithPresentingViewController:self];
@@ -480,7 +479,6 @@
     _fullForm = fullForm;
     if (!self.fullForm) {
         self.dropInContentView.state = BTDropInContentViewStateForm;
-
     }
 }
 
@@ -513,6 +511,14 @@
     self.dropInContentView.ctaControl.callToAction = callToActionText;
 }
 
+- (void)setCardNumber:(NSString *)cardNumber {
+    self.dropInContentView.cardForm.number = cardNumber;
+}
+
+- (void)setCardExpirationMonth:(NSInteger)expirationMonth year:(NSInteger)expirationYear {
+    [self.dropInContentView.cardForm setExpirationMonth:expirationMonth year:expirationYear];
+}
+
 #pragma mark Data
 
 - (void)setPaymentMethodNonces:(NSArray *)paymentMethodNonces {
@@ -531,9 +537,11 @@
         if (elapsed < self.theme.minimumVisibilityTime) {
             NSTimeInterval delay = self.theme.minimumVisibilityTime - elapsed;
 
+            __weak typeof(self) weakSelf = self;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.dropInContentView setState:newState animate:YES];
-                [self updateValidity];
+                [self.dropInContentView setState:newState animate:YES completion:^{
+                    [weakSelf updateValidity];
+                }];
             });
             return;
         }
@@ -564,11 +572,14 @@
     [self.navigationItem.rightBarButtonItem setEnabled:valid];
     [UIView animateWithDuration:self.theme.quickTransitionDuration animations:^{
         self.dropInContentView.ctaControl.enabled = valid;
+        self.dropInContentView.paymentButton.alpha = valid ? 0.3 : 1.0;
     }];
 }
 
 - (void)fetchPaymentMethodsOnCompletion:(void(^)())completionBlock {
     if (self.apiClient.tokenizationKey) {
+        // Necessary to stop loading indicator
+        self.paymentMethodNonces = @[];
         if (completionBlock) completionBlock();
         return;
     }
@@ -586,7 +597,7 @@
                          BTDropInErrorAlert *errorAlert = [[BTDropInErrorAlert alloc] initWithPresentingViewController:self];
                          errorAlert.title = error.localizedDescription;
                          BTJSON *errorBody = error.userInfo[BTHTTPJSONResponseBodyKey];
-                         errorAlert.message = errorBody[@"error"][@"message"].asString;
+                         errorAlert.message = [errorBody[@"error"][@"message"] asString];
                          errorAlert.cancelBlock = ^{
                              [self informDelegateDidCancel];
                              if (completionBlock) completionBlock();
@@ -600,14 +611,12 @@
                      }
 
                      NSMutableArray *paymentMethodNonces = [NSMutableArray array];
-                     for (NSDictionary *paymentInfo in body[@"paymentMethods"].asArray) {
+                     for (NSDictionary *paymentInfo in [body[@"paymentMethods"] asArray]) {
                          BTJSON *paymentInfoJSON = [[BTJSON alloc] initWithValue:paymentInfo];
-                         BTPaymentMethodNonce *paymentMethodNonce = [[BTPaymentMethodNonceParser sharedParser] parseJSON:paymentInfoJSON withParsingBlockForType:paymentInfoJSON[@"type"].asString];
+                         BTPaymentMethodNonce *paymentMethodNonce = [[BTPaymentMethodNonceParser sharedParser] parseJSON:paymentInfoJSON withParsingBlockForType:[paymentInfoJSON[@"type"] asString]];
                          if (paymentMethodNonce) [paymentMethodNonces addObject:paymentMethodNonce];
                      }
-                     if (paymentMethodNonces.count) {
-                         self.paymentMethodNonces = [paymentMethodNonces copy];
-                     }
+                     self.paymentMethodNonces = [paymentMethodNonces copy];
                      if (completionBlock) completionBlock();
                  });
     }];
@@ -641,25 +650,29 @@
 #pragma mark - Helpers
 
 - (BTDropInViewController *)addPaymentMethodDropInViewController {
-    if (!_addPaymentMethodDropInViewController) {
-        _addPaymentMethodDropInViewController = [[BTDropInViewController alloc] initWithAPIClient:self.apiClient];
+    BTDropInViewController *addPaymentMethodDropInViewController = [[BTDropInViewController alloc] initWithAPIClient:self.apiClient];
 
-        _addPaymentMethodDropInViewController.title = BTDropInLocalizedString(ADD_PAYMENT_METHOD_VIEW_CONTROLLER_TITLE);
-        _addPaymentMethodDropInViewController.fullForm = NO;
-        _addPaymentMethodDropInViewController.shouldHideCallToAction = YES;
-        _addPaymentMethodDropInViewController.delegate = self;
-        __weak typeof(self) weakSelf = self;
-        __weak typeof(_addPaymentMethodDropInViewController) weakAddPaymentMethodController = _addPaymentMethodDropInViewController;
-        _addPaymentMethodDropInViewController.dropInContentView.paymentButton.completion = ^(BTPaymentMethodNonce *paymentMethodNonce, NSError *error) {
-            [weakSelf paymentButtonDidCompleteTokenization:paymentMethodNonce fromViewController:weakAddPaymentMethodController error:error];
-        };
-    }
-    return _addPaymentMethodDropInViewController;
+    addPaymentMethodDropInViewController.title = BTDropInLocalizedString(ADD_PAYMENT_METHOD_VIEW_CONTROLLER_TITLE);
+    addPaymentMethodDropInViewController.fullForm = NO;
+
+    BTPaymentRequest *paymentRequest = [BTPaymentRequest new];
+    paymentRequest.shouldHideCallToAction = YES;
+    addPaymentMethodDropInViewController.paymentRequest = paymentRequest;
+
+    addPaymentMethodDropInViewController.delegate = self;
+
+    __weak typeof(self) weakSelf = self;
+    __weak typeof(addPaymentMethodDropInViewController) weakAddPaymentMethodController = addPaymentMethodDropInViewController;
+    addPaymentMethodDropInViewController.dropInContentView.paymentButton.completion = ^(BTPaymentMethodNonce *paymentMethodNonce, NSError *error) {
+        [weakSelf paymentButtonDidCompleteTokenization:paymentMethodNonce fromViewController:weakAddPaymentMethodController error:error];
+    };
+
+    return addPaymentMethodDropInViewController;
 }
 
 - (void)paymentButtonDidCompleteTokenization:(BTPaymentMethodNonce *)paymentMethodNonce
-              fromViewController:(UIViewController *)viewController
-                           error:(NSError *)error {
+                          fromViewController:(UIViewController *)viewController
+                                       error:(NSError *)error {
     if (error) {
         NSString *savePaymentMethodErrorAlertTitle = error.localizedDescription ?: BTDropInLocalizedString(ERROR_ALERT_CONNECTION_ERROR);
         
@@ -680,9 +693,10 @@
         // Refresh payment methods display
         self.paymentMethodNonces = self.paymentMethodNonces;
     }
-    
-    // Let the addPaymentMethodDropInViewController release
-    self.addPaymentMethodDropInViewController = nil;
+}
+
+- (BOOL)isAddPaymentMethodDropInViewController {
+    return [self.delegate isKindOfClass:[BTDropInViewController class]];
 }
 
 #pragma mark - BTViewControllerPresentingDelegate

@@ -28,8 +28,8 @@ class BaseUserInputViewController: UIViewController, UITextFieldDelegate, UIAler
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BaseUserInputViewController.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BaseUserInputViewController.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     override func viewDidDisappear(animated: Bool) {

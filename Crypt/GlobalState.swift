@@ -11,7 +11,6 @@ import Foundation
 import UIKit
 import Lock
 import LockFacebook
-import LockTwitter
 
 struct GlobalState {
     

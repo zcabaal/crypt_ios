@@ -1,6 +1,7 @@
 # Braintree v.zero SDK for iOS
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Travis CI build status](https://travis-ci.org/braintree/braintree_ios.svg?branch=master)](https://travis-ci.org/braintree/braintree_ios)
 
 Welcome to Braintree's v.zero SDK for iOS. This library will help you accept card and PayPal payments in your iOS app.
 
@@ -10,9 +11,9 @@ Welcome to Braintree's v.zero SDK for iOS. This library will help you accept car
 
 ## Getting Started
 
-The current version is 4.0. If you are upgrading from version 3.x, take a look at our [Braintree iOS 3.x to 4.x Migration Guide](Docs/Braintree-4.0-Migration-Guide.md).
+The current major version is 4.x. If you are upgrading from version 3.x, take a look at our [Braintree iOS 3.x to 4.x Migration Guide](Docs/Braintree-4.0-Migration-Guide.md).
 
-If you're looking to integrate 4.0 and you need to accept payments with Venmo, please contact [Braintree Support](mailto:support@braintreepayments.com) about joining the beta program for Pay with Venmo. Version 3.x of the iOS SDK supports a way to accept payments via Venmo, and support in version 4 is coming soon. 
+If you're looking to integrate version 4 and you need to accept payments with Venmo, please contact [Braintree Support](mailto:support@braintreepayments.com) about joining the beta program for Pay with Venmo. If you are using Version 3 of the iOS SDK, it fully supports accepting payments via Venmo One Touch.
 
 We recommend using either [CocoaPods](https://github.com/CocoaPods/CocoaPods) or [Carthage](https://github.com/Carthage/Carthage) to integrate the Braintree SDK with your project.
 
@@ -52,7 +53,9 @@ Coming soon: we will be offering a static library of the Braintree SDK.
 
 ### Manual Integration
 
-Follow the [manual integration instructions](https://github.braintreeps.com/braintree/braintree-ios/blob/master/Docs/Manual%20Integration.md).
+For v3 integrations, please follow the [v3 manual integration instructions](https://github.com/braintree/braintree_ios/blob/3.x/Docs/Manual%20Integration.md).
+
+Complete v4 manual integration instructions are still in-progress. Note that for apps targeting iOS 8+, you may add `Braintree.xcodeproj` to your Xcode workspace and add the frameworks to the app target **Embedded Binaries** section.
 
 ## Supporting iOS 9
 
@@ -73,6 +76,9 @@ If your app is compiled with iOS 9 SDK and integrates payment options with an ap
 If your app supports payments from PayPal:
 * `com.paypal.ppclient.touch.v1`
 * `com.paypal.ppclient.touch.v2`
+
+If your app supports payments from Venmo:
+* `com.venmo.touch.v2`
 
 For example, if your app supports PayPal, you could add the following:
 ```

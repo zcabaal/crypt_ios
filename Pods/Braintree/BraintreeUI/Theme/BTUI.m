@@ -12,6 +12,7 @@
 #import "BTUIAmExVectorArtView.h"
 #import "BTUIPayPalMonogramCardView.h"
 #import "BTUICoinbaseMonogramCardView.h"
+#import "BTUIVenmoMonogramCardView.h"
 
 @implementation BTUI
 
@@ -131,7 +132,8 @@
 }
 
 - (CGFloat)borderWidth {
-    return 0.5f;
+    CGFloat screenScale = [UIScreen mainScreen].scale;
+    return 1 / screenScale;
 }
 
 - (CGFloat)formattedEntryKerning {
@@ -238,6 +240,8 @@
         return BTUIPaymentOptionTypeSwitch;
     } else if ([typeString isEqualToString:@"UnionPay"]) {
         return BTUIPaymentOptionTypeUnionPay;
+    } else if ([typeString isEqualToString:@"Venmo"]) {
+        return BTUIPaymentOptionTypeVenmo;
     } else {
         return BTUIPaymentOptionTypeUnknown;
     }
@@ -269,6 +273,8 @@
             return [BTUIMaestroVectorArtView new];
         case BTUIPaymentOptionTypeAMEX:
             return [BTUIAmExVectorArtView new];
+        case BTUIPaymentOptionTypeVenmo:
+            return [BTUIVenmoMonogramCardView new];
         case BTUIPaymentOptionTypeSolo:
         case BTUIPaymentOptionTypeLaser:
         case BTUIPaymentOptionTypeSwitch:

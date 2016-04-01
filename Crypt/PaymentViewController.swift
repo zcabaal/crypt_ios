@@ -53,7 +53,7 @@ class PaymentViewController: UIViewController, BTDropInViewControllerDelegate {
         // In this example, we wrap it in a new, modally-presented navigation controller:
         dropInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Cancel,
-            target: self, action: "userDidCancelPayment")
+            target: self, action: #selector(PaymentViewController.userDidCancelPayment))
         let navigationController = UINavigationController(rootViewController: dropInViewController)
         presentViewController(navigationController, animated: true, completion: nil)
     }

@@ -1,1 +1,1 @@
-../../../Lock/Pod/Classes/CoreUI/A0PhoneNumberValidator.h
+../../../Lock/Lock/CoreUI/A0PhoneNumberValidator.h

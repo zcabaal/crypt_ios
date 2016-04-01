@@ -1,1 +1,0 @@
-../../../Lock-Twitter/Pod/Classes/A0TwitterAuthenticator.h
