@@ -8,6 +8,7 @@
 
 import UIKit
 import Braintree
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GlobalState.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
         BTAppSwitch.setReturnURLScheme(GlobalState.braintreeURL)
+        Stripe.setDefaultPublishableKey(GlobalState.stripePKey)
         return true
     }
 

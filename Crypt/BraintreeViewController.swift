@@ -1,5 +1,5 @@
 //
-//  PaymentViewController.swift
+//  BraintreeViewController.swift
 //  Crypt
 //
 //  Created by Mac Owner on 30/11/2015.
@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import Braintree
 
-class PaymentViewController: UIViewController, BTDropInViewControllerDelegate {
+class BraintreeViewController: UIViewController, BTDropInViewControllerDelegate {
 
     var braintreeClient: BTAPIClient?
     
@@ -53,7 +53,7 @@ class PaymentViewController: UIViewController, BTDropInViewControllerDelegate {
         // In this example, we wrap it in a new, modally-presented navigation controller:
         dropInViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Cancel,
-            target: self, action: #selector(PaymentViewController.userDidCancelPayment))
+            target: self, action: #selector(BraintreeViewController.userDidCancelPayment))
         let navigationController = UINavigationController(rootViewController: dropInViewController)
         presentViewController(navigationController, animated: true, completion: nil)
     }

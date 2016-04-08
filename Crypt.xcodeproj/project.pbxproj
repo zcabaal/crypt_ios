@@ -12,7 +12,7 @@
 		DA8181BD91D7099B8ECC93CD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF48107A67779B9F817E947 /* Pods.framework */; };
 		F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */; };
 		F127E79E1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */; };
-		F127E7A01C330CAB00F2ECAB /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127E79F1C330CAB00F2ECAB /* PaymentViewController.swift */; };
+		F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */; };
 		F127E7A21C330CC900F2ECAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F127E7A11C330CC900F2ECAB /* GoogleService-Info.plist */; };
 		F15AFE771CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = F15AFE761CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m */; };
 		F1A25AC81CAEDF8E00BDDB3C /* BDBOAuth1Manager in Resources */ = {isa = PBXBuildFile; fileRef = F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */; };
@@ -20,6 +20,7 @@
 		F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACE1CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m */; };
 		F1A25AD61CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD31CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m */; };
 		F1A25AD71CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD51CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m */; };
+		F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */; };
 		F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */; };
 		F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51901BEA26E1007FF026 /* LogInViewController.swift */; };
 		F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */; };
@@ -62,7 +63,7 @@
 		F122F4871BE7E97E00CB3AB2 /* Obfuscator+Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Obfuscator+Swift.h"; sourceTree = "<group>"; };
 		F122F4881BE7E97E00CB3AB2 /* Obfuscator+Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Obfuscator+Swift.m"; sourceTree = "<group>"; };
 		F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViaThirdPartyAppsViewController.swift; sourceTree = "<group>"; };
-		F127E79F1C330CAB00F2ECAB /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BraintreeViewController.swift; sourceTree = "<group>"; };
 		F127E7A11C330CC900F2ECAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F15AFE761CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0TwitterAuthenticator.m; sourceTree = "<group>"; };
 		F15AFE781CAECD8300ACB3A8 /* A0TwitterAuthenticator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A0TwitterAuthenticator.h; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		F1A25AD31CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+BDBOAuth1Manager.m"; path = "BDBOAuth1Manager/Categories/NSDictionary+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
 		F1A25AD41CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+BDBOAuth1Manager.h"; path = "BDBOAuth1Manager/Categories/NSString+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
 		F1A25AD51CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+BDBOAuth1Manager.m"; path = "BDBOAuth1Manager/Categories/NSString+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
+		F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeViewController.swift; sourceTree = "<group>"; };
 		F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BD51901BEA26E1007FF026 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUserInputViewController.swift; sourceTree = "<group>"; };
@@ -208,7 +210,8 @@
 				F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */,
 				F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */,
 				F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */,
-				F127E79F1C330CAB00F2ECAB /* PaymentViewController.swift */,
+				F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */,
+				F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */,
 				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
 				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
 				F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */,
@@ -432,8 +435,9 @@
 				F122F4891BE7E97E00CB3AB2 /* Obfuscator+Swift.m in Sources */,
 				F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */,
 				F127E79E1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift in Sources */,
-				F127E7A01C330CAB00F2ECAB /* PaymentViewController.swift in Sources */,
+				F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */,
 				F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */,
+				F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				C9A9FB981C08A2310008EB9D /* A0GoogleProvider.m in Sources */,
 				F1A25AD61CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m in Sources */,
