@@ -9,8 +9,11 @@
 import Foundation
 
 import UIKit
+import SimpleKeychain
 import Lock
 import LockFacebook
+import Alamofire
+import JWTDecode
 
 struct GlobalState {
     
@@ -18,10 +21,13 @@ struct GlobalState {
     
     static let braintreeURL = "com.crypttransfer.crypt.braintree"
     static let stripePKey = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    static let appVersion = "iOS \(NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] ?? "unknown") (\(NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] ?? "unknown"))"
     
+    let keychain: A0SimpleKeychain
     let lock: A0Lock
     
     private init() {
+        self.keychain = A0SimpleKeychain(service: "Auth0")
         self.lock = A0Lock()
         let obf = Obfuscator.initForSwift()
         let ApiKey: [UInt8] = [ 0x5C, 0x5C, 0x75, 0x51, 0x7D, 0x40, 0x31, 0x5D, 0x7B, 0x13, 0xB, 0x28, 0x58, 0x6, 0x55, 0x65, 0x58, 0x76, 0x5D, 0x7D, 0x2A, 0x2D, 0x3C, 0xC, 0x3, 0x00 ]
@@ -31,4 +37,39 @@ struct GlobalState {
         let google = A0GoogleAuthenticator.newAuthenticator()
         self.lock.registerAuthenticators([facebook,twitter,google])
     }
+    func apiRequest(
+        method: Alamofire.Method,
+        _ URLString: URLStringConvertible,
+          parameters: [String: AnyObject]? = nil,
+          encoding: ParameterEncoding = .URL,
+          headers: [String: String] = [:],
+          completionHandler: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Void){
+            var newHeaders = headers
+            newHeaders["Device ID"] = "\(UIDevice.currentDevice().identifierForVendor?.UUIDString ?? "unknown")"
+            newHeaders["App Version"] = GlobalState.appVersion
+            if let idToken = keychain.stringForKey("id_token"), let jwt = try? JWTDecode.decode(idToken) {
+                if jwt.expired, let refreshToken = keychain.stringForKey("refresh_token") {
+                    
+                    let success = {(token:A0Token!) -> () in
+                        self.keychain.setString(token.idToken, forKey: "id_token")
+                        newHeaders["Authorization"] = "Bearer \(token.idToken)"
+                        Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: newHeaders).response(completionHandler: completionHandler)
+                    }
+                    let failure = {(error:NSError!) -> () in
+                        self.keychain.clearAll()
+                        completionHandler(nil, nil, nil, error)
+                    }
+                    let client = lock.apiClient()
+                    client.fetchNewIdTokenWithRefreshToken(refreshToken, parameters: nil, success: success, failure: failure)
+                }else{
+                    newHeaders["Authorization"] = "Bearer \(idToken)"
+                    Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: newHeaders).response(completionHandler: completionHandler)
+                }
+                
+            }else{
+                completionHandler(nil, nil, nil, NSError.init(domain: "no token", code: 999, userInfo: ["error":"no token"]))
+        }
+    }
 }
+
+

@@ -50,6 +50,12 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile, A0Token) -> () {
         return { (profile, token) -> Void in
+            let keychain = GlobalState.sharedInstance.keychain
+            keychain.setString(token.idToken, forKey: "id_token")
+            if let refreshToken = token.refreshToken {
+                keychain.setString(refreshToken, forKey: "refresh_token")
+            }
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)

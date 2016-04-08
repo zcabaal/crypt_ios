@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4BE753BD35B142737DB1D640'
+               BlueprintIdentifier = '2B7BA823AC971274BC87D696'
                BlueprintName = 'Pods-CryptUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_CryptUITests.framework'>

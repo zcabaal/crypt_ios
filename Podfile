@@ -8,6 +8,8 @@ pod "Lock", "~> 1.23"
 pod "Lock-Facebook", "~> 2.2"
 #pod "Lock-Twitter", "~> 1.1"
 #pod 'BDBOAuth1Manager', '~> 2.0'
+pod "JWTDecode", "~> 1.0"
+pod "SimpleKeychain", "~> 0.7"
 pod 'TWReverseAuth', '~> 0.1'
 pod 'PSAlertView', '~> 2.0'
 pod "Google/SignIn", "~> 2.0"

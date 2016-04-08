@@ -116,7 +116,17 @@ class SignUpViewController: BaseUserInputViewController  {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile?, A0Token?) -> () {
         return { (profile, token) -> Void in
-            print("Signed up user \(profile?.name)")
+            guard let profile = profile, let token = token else {
+                print("Token does not exist")
+                return
+            }
+            let keychain = GlobalState.sharedInstance.keychain
+            keychain.setString(token.idToken, forKey: "id_token")
+            if let refreshToken = token.refreshToken {
+                keychain.setString(refreshToken, forKey: "refresh_token")
+            }
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            print("Signed up user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)
             self.presentViewController((self.storyboard?.instantiateViewControllerWithIdentifier("nav1"))!, animated: true, completion: nil)
