@@ -26,6 +26,20 @@ class CryptTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testGlobalPrefsFetching() {
+        NSUserDefaults.resetStandardUserDefaults()
+        GlobalPrefs.sharedInstance.fetch(100)
+        NSThread.sleepForTimeInterval(2)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.about.string.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.appTourMessages.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.faq.string.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.logoUrl.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.privacyPolicy.string.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.sharingUrl.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.supportedCurrencies.isEmpty)
+        XCTAssertFalse(GlobalPrefs.sharedInstance.termsAndConditions.string.isEmpty)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {

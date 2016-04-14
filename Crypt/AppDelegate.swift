@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        GlobalState.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
-        BTAppSwitch.setReturnURLScheme(GlobalState.braintreeURL)
-        Stripe.setDefaultPublishableKey(GlobalState.stripePKey)
+        App.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
+        BTAppSwitch.setReturnURLScheme(App.braintreeURL)
+        Stripe.setDefaultPublishableKey(App.stripePKey)
         return true
     }
 
@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        GlobalPrefs.sharedInstance.fetch(2)
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -47,10 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        if url.scheme.localizedCaseInsensitiveCompare(GlobalState.braintreeURL) == .OrderedSame {
+        if url.scheme.localizedCaseInsensitiveCompare(App.braintreeURL) == .OrderedSame {
             return BTAppSwitch.handleOpenURL(url, sourceApplication:sourceApplication)
         }else{
-            return GlobalState.sharedInstance.lock.handleURL(url, sourceApplication: sourceApplication)
+            return App.sharedInstance.lock.handleURL(url, sourceApplication: sourceApplication)
         }
         
     }

@@ -1,5 +1,5 @@
 //
-//  GlobalState.swift
+//  App.swift
 //  Crypt
 //
 //  Created by Mac Owner on 30/10/2015.
@@ -15,10 +15,11 @@ import LockFacebook
 import Alamofire
 import JWTDecode
 
-struct GlobalState {
+struct App {
     
-    static let sharedInstance = GlobalState()
+    static let sharedInstance = App()
     
+    static let baseURL = "http://localhost:9292/api/v1"
     static let braintreeURL = "com.crypttransfer.crypt.braintree"
     static let stripePKey = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
     static let appVersion = "iOS \(NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] ?? "unknown") (\(NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] ?? "unknown"))"
@@ -39,14 +40,15 @@ struct GlobalState {
     }
     func apiRequest(
         method: Alamofire.Method,
-        _ URLString: URLStringConvertible,
+        _ endpoint: URLStringConvertible,
           parameters: [String: AnyObject]? = nil,
           encoding: ParameterEncoding = .URL,
           headers: [String: String] = [:],
           completionHandler: (NSURLRequest?, NSHTTPURLResponse?, NSData?, NSError?) -> Void){
+            let URLString = App.baseURL + endpoint.URLString
             var newHeaders = headers
             newHeaders["Device ID"] = "\(UIDevice.currentDevice().identifierForVendor?.UUIDString ?? "unknown")"
-            newHeaders["App Version"] = GlobalState.appVersion
+            newHeaders["App Version"] = App.appVersion
             if let idToken = keychain.stringForKey("id_token"), let jwt = try? JWTDecode.decode(idToken) {
                 if jwt.expired, let refreshToken = keychain.stringForKey("refresh_token") {
                     

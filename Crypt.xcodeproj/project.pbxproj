@@ -21,17 +21,17 @@
 		F1A25AD61CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD31CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m */; };
 		F1A25AD71CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD51CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m */; };
 		F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */; };
+		F1A25ADF1CBBAD0A00BDDB3C /* GlobalPrefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ADE1CBBAD0A00BDDB3C /* GlobalPrefs.swift */; };
 		F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */; };
 		F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51901BEA26E1007FF026 /* LogInViewController.swift */; };
 		F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */; };
 		F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */; };
-		F1CFC2131BCFF79100F5E2D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */; };
 		F1CFC2161BCFF79100F5E2D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CFC2141BCFF79100F5E2D8 /* Main.storyboard */; };
 		F1CFC2181BCFF79100F5E2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1CFC2171BCFF79100F5E2D8 /* Assets.xcassets */; };
 		F1CFC21B1BCFF79100F5E2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1CFC2191BCFF79100F5E2D8 /* LaunchScreen.storyboard */; };
 		F1CFC2261BCFF79200F5E2D8 /* CryptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2251BCFF79200F5E2D8 /* CryptTests.swift */; };
 		F1CFC2311BCFF79200F5E2D8 /* CryptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2301BCFF79200F5E2D8 /* CryptUITests.swift */; };
-		F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9F1BE4246000364642 /* GlobalState.swift */; };
+		F1D59AA01BE4246000364642 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9F1BE4246000364642 /* App.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,12 +77,12 @@
 		F1A25AD41CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+BDBOAuth1Manager.h"; path = "BDBOAuth1Manager/Categories/NSString+BDBOAuth1Manager.h"; sourceTree = "<group>"; };
 		F1A25AD51CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+BDBOAuth1Manager.m"; path = "BDBOAuth1Manager/Categories/NSString+BDBOAuth1Manager.m"; sourceTree = "<group>"; };
 		F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeViewController.swift; sourceTree = "<group>"; };
+		F1A25ADE1CBBAD0A00BDDB3C /* GlobalPrefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalPrefs.swift; sourceTree = "<group>"; };
 		F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BD51901BEA26E1007FF026 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUserInputViewController.swift; sourceTree = "<group>"; };
 		F1CFC20D1BCFF79100F5E2D8 /* Crypt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F1CFC2151BCFF79100F5E2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1CFC2171BCFF79100F5E2D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1CFC21A1BCFF79100F5E2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		F1CFC22C1BCFF79200F5E2D8 /* CryptUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1CFC2301BCFF79200F5E2D8 /* CryptUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptUITests.swift; sourceTree = "<group>"; };
 		F1CFC2321BCFF79200F5E2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1D59A9F1BE4246000364642 /* GlobalState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		F1D59A9F1BE4246000364642 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypt-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +163,27 @@
 			name = Catagories;
 			sourceTree = "<group>";
 		};
+		F1A25ADC1CBBABDB00BDDB3C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */,
+				F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */,
+				F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */,
+				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
+				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
+				F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F1A25ADD1CBBACD500BDDB3C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F1A25ADE1CBBAD0A00BDDB3C /* GlobalPrefs.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 		F1BD519A1BEADE2C007FF026 /* External files */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,15 +228,10 @@
 		F1CFC20F1BCFF79100F5E2D8 /* Crypt */ = {
 			isa = PBXGroup;
 			children = (
+				F1A25ADD1CBBACD500BDDB3C /* models */,
 				F1CFC2101BCFF79100F5E2D8 /* AppDelegate.swift */,
-				F1CFC2121BCFF79100F5E2D8 /* ViewController.swift */,
-				F1BD51921BEA49A6007FF026 /* BaseUserInputViewController.swift */,
-				F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */,
-				F1A25AD81CB25FE300BDDB3C /* StripeViewController.swift */,
-				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
-				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
-				F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */,
-				F1D59A9F1BE4246000364642 /* GlobalState.swift */,
+				F1D59A9F1BE4246000364642 /* App.swift */,
+				F1A25ADC1CBBABDB00BDDB3C /* Controllers */,
 				F1CFC2141BCFF79100F5E2D8 /* Main.storyboard */,
 				F1CFC2171BCFF79100F5E2D8 /* Assets.xcassets */,
 				F1CFC2191BCFF79100F5E2D8 /* LaunchScreen.storyboard */,
@@ -428,7 +444,6 @@
 			files = (
 				F1A25ACF1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m in Sources */,
 				F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */,
-				F1CFC2131BCFF79100F5E2D8 /* ViewController.swift in Sources */,
 				F15AFE771CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m in Sources */,
 				F1BD51911BEA26E1007FF026 /* LogInViewController.swift in Sources */,
 				C9A9FB971C08A2310008EB9D /* A0GoogleAuthenticator.m in Sources */,
@@ -436,11 +451,12 @@
 				F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */,
 				F127E79E1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift in Sources */,
 				F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */,
-				F1D59AA01BE4246000364642 /* GlobalState.swift in Sources */,
+				F1D59AA01BE4246000364642 /* App.swift in Sources */,
 				F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				C9A9FB981C08A2310008EB9D /* A0GoogleProvider.m in Sources */,
 				F1A25AD61CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m in Sources */,
+				F1A25ADF1CBBAD0A00BDDB3C /* GlobalPrefs.swift in Sources */,
 				F1A25AD71CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m in Sources */,
 				F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */,
 			);

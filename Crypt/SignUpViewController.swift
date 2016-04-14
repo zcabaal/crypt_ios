@@ -99,7 +99,7 @@ class SignUpViewController: BaseUserInputViewController  {
             self.showCannotBeEmptyAlert(Constants.password)
             return
         }
-        let client = GlobalState.sharedInstance.lock.apiClient()
+        let client = App.sharedInstance.lock.apiClient()
         let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         client.signUpWithEmail(email, password: password, loginOnSuccess: true, parameters: parameters, success: successCallback(hud), failure: errorCallback(hud))
@@ -120,7 +120,7 @@ class SignUpViewController: BaseUserInputViewController  {
                 print("Token does not exist")
                 return
             }
-            let keychain = GlobalState.sharedInstance.keychain
+            let keychain = App.sharedInstance.keychain
             keychain.setString(token.idToken, forKey: "id_token")
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")

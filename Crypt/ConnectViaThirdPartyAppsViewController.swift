@@ -17,8 +17,8 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +28,7 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     }
     
     @IBAction func connectWithSotialApp(sender: UIButton){
-        let lock = GlobalState.sharedInstance.lock
+        let lock = App.sharedInstance.lock
         let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         if let buttonLable = sender.titleLabel?.text
@@ -50,7 +50,7 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     
     private func successCallback(hud: MBProgressHUD) -> (A0UserProfile, A0Token) -> () {
         return { (profile, token) -> Void in
-            let keychain = GlobalState.sharedInstance.keychain
+            let keychain = App.sharedInstance.keychain
             keychain.setString(token.idToken, forKey: "id_token")
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
