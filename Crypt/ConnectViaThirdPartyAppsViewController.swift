@@ -40,8 +40,8 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
             let errorMessage = error.userInfo["NSLocalizedFailureReason"] as? String ?? "Oooops! Something went wrong!"
-            let alert = UIAlertController(title: "Login failed", message: errorMessage, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            let alert = UIAlertController(title: NSLocalizedString("Login failed", comment: ""), message: errorMessage, preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             print("Failed with error \(error)")
             hud.hide(true)
@@ -55,7 +55,7 @@ class ConnectViaThridPartyAppsViewController: UIViewController {
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
             }
-            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            App.sharedInstance.profile = profile
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)

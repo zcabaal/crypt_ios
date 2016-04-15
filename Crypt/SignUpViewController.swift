@@ -108,7 +108,7 @@ class SignUpViewController: BaseUserInputViewController  {
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
             let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["description"]??.description ?? error.userInfo["NSLocalizedFailureReason"]?.description
-            self.showBasicAlert("Sign up Failed",message: errorMessage ?? "Oooops! an error have occured")
+            self.showBasicAlert(NSLocalizedString("Sign up Failed", comment: ""),message: errorMessage ?? GlobalPrefs.sharedInstance.gracefulErrorMessage)
             print("Failed with error \(error)")
             hud.hide(true)
         }
@@ -125,7 +125,7 @@ class SignUpViewController: BaseUserInputViewController  {
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
             }
-            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            App.sharedInstance.profile = profile
             print("Signed up user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)

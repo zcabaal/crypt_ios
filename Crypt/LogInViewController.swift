@@ -89,7 +89,7 @@ class LogInViewController: BaseUserInputViewController {
     private func errorCallback(hud: MBProgressHUD) -> NSError -> () {
         return { error in
             let errorMessage = error.userInfo["A0JSONResponseSerializerErrorDataKey"]?["error_description"]??.description ?? error.userInfo["NSLocalizedFailureReason"] as? String
-            self.showBasicAlert("Login Failed", message: errorMessage ?? "Oooops! an error have occured")
+            self.showBasicAlert(NSLocalizedString("Login Failed", comment: ""), message: errorMessage ?? GlobalPrefs.sharedInstance.gracefulErrorMessage)
             print("Failed with error \(error)")
             hud.hide(true)
             
@@ -103,7 +103,7 @@ class LogInViewController: BaseUserInputViewController {
             if let refreshToken = token.refreshToken {
                 keychain.setString(refreshToken, forKey: "refresh_token")
             }
-            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            App.sharedInstance.profile = profile
             print("Logged in user \(profile.name)")
             print("Tokens: \(token)")
             hud.hide(true)

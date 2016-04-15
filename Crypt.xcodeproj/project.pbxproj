@@ -15,6 +15,9 @@
 		F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127E79F1C330CAB00F2ECAB /* BraintreeViewController.swift */; };
 		F127E7A21C330CC900F2ECAB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F127E7A11C330CC900F2ECAB /* GoogleService-Info.plist */; };
 		F15AFE771CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = F15AFE761CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m */; };
+		F19195FA1CC1311B000495BB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */; };
+		F19195FC1CC13A05000495BB /* IssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FB1CC13A05000495BB /* IssueViewController.swift */; };
+		F19195FE1CC1600D000495BB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FD1CC1600D000495BB /* TextViewController.swift */; };
 		F1A25AC81CAEDF8E00BDDB3C /* BDBOAuth1Manager in Resources */ = {isa = PBXBuildFile; fileRef = F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */; };
 		F1A25ACF1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */; };
 		F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACE1CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m */; };
@@ -67,6 +70,9 @@
 		F127E7A11C330CC900F2ECAB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F15AFE761CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0TwitterAuthenticator.m; sourceTree = "<group>"; };
 		F15AFE781CAECD8300ACB3A8 /* A0TwitterAuthenticator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = A0TwitterAuthenticator.h; sourceTree = "<group>"; };
+		F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		F19195FB1CC13A05000495BB /* IssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueViewController.swift; sourceTree = "<group>"; };
+		F19195FD1CC1600D000495BB /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BDBOAuth1Manager; path = /Users/MacOwner/Documents/Crypt/Crypt/BDBOAuth1Manager; sourceTree = "<absolute>"; };
 		F1A25ACB1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDBOAuth1RequestSerializer.h; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.h; sourceTree = "<group>"; };
 		F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDBOAuth1RequestSerializer.m; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				F1BD518E1BEA26AE007FF026 /* SignUpViewController.swift */,
 				F1BD51901BEA26E1007FF026 /* LogInViewController.swift */,
 				F127E79D1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift */,
+				F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */,
+				F19195FB1CC13A05000495BB /* IssueViewController.swift */,
+				F19195FD1CC1600D000495BB /* TextViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -451,12 +460,15 @@
 				F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */,
 				F127E79E1C330C8E00F2ECAB /* ConnectViaThirdPartyAppsViewController.swift in Sources */,
 				F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */,
+				F19195FA1CC1311B000495BB /* ResetPasswordViewController.swift in Sources */,
 				F1D59AA01BE4246000364642 /* App.swift in Sources */,
 				F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				C9A9FB981C08A2310008EB9D /* A0GoogleProvider.m in Sources */,
 				F1A25AD61CAEE40500BDDB3C /* NSDictionary+BDBOAuth1Manager.m in Sources */,
+				F19195FE1CC1600D000495BB /* TextViewController.swift in Sources */,
 				F1A25ADF1CBBAD0A00BDDB3C /* GlobalPrefs.swift in Sources */,
+				F19195FC1CC13A05000495BB /* IssueViewController.swift in Sources */,
 				F1A25AD71CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m in Sources */,
 				F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */,
 			);

@@ -63,10 +63,10 @@ class GlobalPrefs{
     func fetch(retryAfterInterval: NSTimeInterval){
         print(App.baseURL+"/global_prefs")
         Alamofire.request(.GET, App.baseURL+"/global_prefs").responseJSON { (response) in
-            if ((response.result.error) != nil){
+            if let error = response.result.error{
                 print("error fetching global prefs")
-                print(response.result.error?.code)
-                print(response.result.error?.userInfo)
+                print(error.code)
+                print(error.userInfo)
                 NSTimer.scheduledTimerWithTimeInterval(retryAfterInterval, target: self, selector: #selector(GlobalPrefs.timerFunc(_:)), userInfo: nil, repeats: false)
             }
             else if let responseJSON = response.result.value as? [String: AnyObject]{
