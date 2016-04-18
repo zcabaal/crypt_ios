@@ -105,6 +105,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/SimpleKeychain.framework"
   install_framework "Pods/Stripe.framework"
   install_framework "Pods/SwiftValidator.framework"
+  install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/TWReverseAuth.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -129,5 +130,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/SimpleKeychain.framework"
   install_framework "Pods/Stripe.framework"
   install_framework "Pods/SwiftValidator.framework"
+  install_framework "Pods/SwiftyJSON.framework"
   install_framework "Pods/TWReverseAuth.framework"
 fi

@@ -18,6 +18,8 @@
 		F19195FA1CC1311B000495BB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */; };
 		F19195FC1CC13A05000495BB /* IssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FB1CC13A05000495BB /* IssueViewController.swift */; };
 		F19195FE1CC1600D000495BB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FD1CC1600D000495BB /* TextViewController.swift */; };
+		F19196001CC58E3F000495BB /* TransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */; };
+		F19196021CC58E97000495BB /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19196011CC58E97000495BB /* Transaction.swift */; };
 		F1A25AC81CAEDF8E00BDDB3C /* BDBOAuth1Manager in Resources */ = {isa = PBXBuildFile; fileRef = F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */; };
 		F1A25ACF1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */; };
 		F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACE1CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m */; };
@@ -73,6 +75,8 @@
 		F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		F19195FB1CC13A05000495BB /* IssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueViewController.swift; sourceTree = "<group>"; };
 		F19195FD1CC1600D000495BB /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewController.swift; sourceTree = "<group>"; };
+		F19196011CC58E97000495BB /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BDBOAuth1Manager; path = /Users/MacOwner/Documents/Crypt/Crypt/BDBOAuth1Manager; sourceTree = "<absolute>"; };
 		F1A25ACB1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDBOAuth1RequestSerializer.h; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.h; sourceTree = "<group>"; };
 		F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDBOAuth1RequestSerializer.m; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				F19195F91CC1311B000495BB /* ResetPasswordViewController.swift */,
 				F19195FB1CC13A05000495BB /* IssueViewController.swift */,
 				F19195FD1CC1600D000495BB /* TextViewController.swift */,
+				F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				F1A25ADE1CBBAD0A00BDDB3C /* GlobalPrefs.swift */,
+				F19196011CC58E97000495BB /* Transaction.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F19196021CC58E97000495BB /* Transaction.swift in Sources */,
 				F1A25ACF1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m in Sources */,
 				F1BD518F1BEA26AE007FF026 /* SignUpViewController.swift in Sources */,
 				F15AFE771CAECD6C00ACB3A8 /* A0TwitterAuthenticator.m in Sources */,
@@ -470,6 +477,7 @@
 				F1A25ADF1CBBAD0A00BDDB3C /* GlobalPrefs.swift in Sources */,
 				F19195FC1CC13A05000495BB /* IssueViewController.swift in Sources */,
 				F1A25AD71CAEE40500BDDB3C /* NSString+BDBOAuth1Manager.m in Sources */,
+				F19196001CC58E3F000495BB /* TransactionHistoryViewController.swift in Sources */,
 				F1BD51931BEA49A6007FF026 /* BaseUserInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
