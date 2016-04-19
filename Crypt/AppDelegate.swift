@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Fabric
+import Appsee
+import Crashlytics
+import Optimizely
+import TwitterKit
 import Braintree
 import Stripe
 
@@ -19,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         App.sharedInstance.lock.applicationLaunchedWithOptions(launchOptions)
+        Fabric.with([Twitter.self, STPAPIClient.self, Crashlytics.self, Optimizely.self, Appsee.self])
+        Optimizely.startOptimizelyWithAPIToken(App.optimizelyKey, launchOptions:launchOptions)
         BTAppSwitch.setReturnURLScheme(App.braintreeURL)
         Stripe.setDefaultPublishableKey(App.stripePKey)
         return true

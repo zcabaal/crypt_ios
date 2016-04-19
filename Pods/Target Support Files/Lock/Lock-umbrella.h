@@ -22,6 +22,7 @@
 #import "A0LockNotification.h"
 #import "A0MainBundleCredentialProvider.h"
 #import "A0PasswordStrengthErrorHandler.h"
+#import "A0PKCE.h"
 #import "A0RuleErrorHandler.h"
 #import "A0SimpleConnectionDomainMatcher.h"
 #import "A0Strategy.h"

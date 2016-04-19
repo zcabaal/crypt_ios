@@ -6,6 +6,7 @@ use_frameworks!
 pod "AFNetworking", "~> 3.1"
 pod "Lock", "~> 1.23"
 pod "Lock-Facebook", "~> 2.2"
+pod "FBSDKShareKit", "~> 4.10"
 #pod "Lock-Twitter", "~> 1.1"
 #pod 'BDBOAuth1Manager', '~> 2.0'
 pod "JWTDecode", "~> 1.0"
@@ -21,7 +22,12 @@ pod "SwiftyJSON", "~> 2.3"
 pod "Braintree", "~> 4.2"
 pod "Stripe", "~> 6.2"
 pod "Canvas", "~> 0.1"
-
+pod 'Fabric'
+pod 'Appsee'
+pod 'Crashlytics'
+pod 'TwitterKit'
+pod 'TwitterCore'
+pod 'Optimizely-iOS-SDK'
 
 target 'Crypt' do
 

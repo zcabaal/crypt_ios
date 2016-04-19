@@ -22,6 +22,7 @@ struct App {
     static let baseURL = "http://localhost:9292/api/v1"
     static let braintreeURL = "com.crypttransfer.crypt.braintree"
     static let stripePKey = "pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    static let optimizelyKey = "AANPELcB09HfBbh7pLsbm9tXQbxjBV7O~5679860087"
     static let appVersion = "iOS \(NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] ?? "unknown") (\(NSBundle.mainBundle().infoDictionary?["CFBundleVersion"] ?? "unknown"))"
     
     let keychain: A0SimpleKeychain

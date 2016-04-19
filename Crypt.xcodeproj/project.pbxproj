@@ -20,6 +20,7 @@
 		F19195FE1CC1600D000495BB /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FD1CC1600D000495BB /* TextViewController.swift */; };
 		F19196001CC58E3F000495BB /* TransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */; };
 		F19196021CC58E97000495BB /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19196011CC58E97000495BB /* Transaction.swift */; };
+		F19196041CC59DB9000495BB /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19196031CC59DB9000495BB /* ShareViewController.swift */; };
 		F1A25AC81CAEDF8E00BDDB3C /* BDBOAuth1Manager in Resources */ = {isa = PBXBuildFile; fileRef = F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */; };
 		F1A25ACF1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */; };
 		F1A25AD01CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A25ACE1CAEE3DF00BDDB3C /* BDBOAuth1SessionManager.m */; };
@@ -77,6 +78,7 @@
 		F19195FD1CC1600D000495BB /* TextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistoryViewController.swift; sourceTree = "<group>"; };
 		F19196011CC58E97000495BB /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		F19196031CC59DB9000495BB /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		F1A25AC71CAEDF8E00BDDB3C /* BDBOAuth1Manager */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BDBOAuth1Manager; path = /Users/MacOwner/Documents/Crypt/Crypt/BDBOAuth1Manager; sourceTree = "<absolute>"; };
 		F1A25ACB1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BDBOAuth1RequestSerializer.h; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.h; sourceTree = "<group>"; };
 		F1A25ACC1CAEE3DF00BDDB3C /* BDBOAuth1RequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BDBOAuth1RequestSerializer.m; path = BDBOAuth1Manager/BDBOAuth1RequestSerializer.m; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				F19195FB1CC13A05000495BB /* IssueViewController.swift */,
 				F19195FD1CC1600D000495BB /* TextViewController.swift */,
 				F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */,
+				F19196031CC59DB9000495BB /* ShareViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				F1CFC20B1BCFF79100F5E2D8 /* Resources */,
 				2E986F59CDB8A379A0A1F377 /* Embed Pods Frameworks */,
 				142F98B60BEA331018DC371A /* Copy Pods Resources */,
+				F19196051CC64321000495BB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -450,6 +454,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F19196051CC64321000495BB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" f0b51d492071ed53ca12a17e5d1bba18772368f4 4cc9f983952d469c1d80d0066e8fd735da0e7df0f76e923e19e5f6282d28920a";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -469,6 +486,7 @@
 				F127E7A01C330CAB00F2ECAB /* BraintreeViewController.swift in Sources */,
 				F19195FA1CC1311B000495BB /* ResetPasswordViewController.swift in Sources */,
 				F1D59AA01BE4246000364642 /* App.swift in Sources */,
+				F19196041CC59DB9000495BB /* ShareViewController.swift in Sources */,
 				F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				C9A9FB981C08A2310008EB9D /* A0GoogleProvider.m in Sources */,
