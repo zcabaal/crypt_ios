@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C638D37979E1F23EF0AF7305'
+               BlueprintIdentifier = '7405A3D51A7DC938544A3DCE'
                BlueprintName = 'TWReverseAuth'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'TWReverseAuth.framework'>

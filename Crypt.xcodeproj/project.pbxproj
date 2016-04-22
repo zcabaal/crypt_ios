@@ -38,6 +38,7 @@
 		F1CFC2261BCFF79200F5E2D8 /* CryptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2251BCFF79200F5E2D8 /* CryptTests.swift */; };
 		F1CFC2311BCFF79200F5E2D8 /* CryptUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CFC2301BCFF79200F5E2D8 /* CryptUITests.swift */; };
 		F1D59AA01BE4246000364642 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D59A9F1BE4246000364642 /* App.swift */; };
+		F1E774451CCA421D009459C3 /* SelectReceiverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E774441CCA421D009459C3 /* SelectReceiverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		F1CFC2321BCFF79200F5E2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1D59A9F1BE4246000364642 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		F1D59AA11BE7D39300364642 /* Crypt-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crypt-Bridging-Header.h"; sourceTree = "<group>"; };
+		F1E774441CCA421D009459C3 /* SelectReceiverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectReceiverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				F19195FD1CC1600D000495BB /* TextViewController.swift */,
 				F19195FF1CC58E3F000495BB /* TransactionHistoryViewController.swift */,
 				F19196031CC59DB9000495BB /* ShareViewController.swift */,
+				F1E774441CCA421D009459C3 /* SelectReceiverViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				F19195FA1CC1311B000495BB /* ResetPasswordViewController.swift in Sources */,
 				F1D59AA01BE4246000364642 /* App.swift in Sources */,
 				F19196041CC59DB9000495BB /* ShareViewController.swift in Sources */,
+				F1E774451CCA421D009459C3 /* SelectReceiverViewController.swift in Sources */,
 				F1A25AD91CB25FE300BDDB3C /* StripeViewController.swift in Sources */,
 				F1CFC2111BCFF79100F5E2D8 /* AppDelegate.swift in Sources */,
 				C9A9FB981C08A2310008EB9D /* A0GoogleProvider.m in Sources */,

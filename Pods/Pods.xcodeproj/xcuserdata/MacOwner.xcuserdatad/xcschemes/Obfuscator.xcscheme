@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F2B399BEAA21036CDB3A0113'
+               BlueprintIdentifier = 'E3D4B4323D2A3DEEDC5EE672'
                BlueprintName = 'Obfuscator'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Obfuscator.framework'>

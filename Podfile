@@ -23,7 +23,6 @@ pod "Braintree", "~> 4.2"
 pod "Stripe", "~> 6.2"
 pod "Canvas", "~> 0.1"
 pod 'Fabric'
-pod 'Appsee'
 pod 'Crashlytics'
 pod 'TwitterKit'
 pod 'TwitterCore'
